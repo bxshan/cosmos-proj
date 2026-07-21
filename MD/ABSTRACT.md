@@ -1,0 +1,10 @@
+# The Unguarded Doors: A Cross-Modal Safety Gap in Omni-Modal LLMs, and a Detector to Close It
+
+**COSMOS Cluster 6 capstone abstract.** *Alt titles: "When Safety Only Speaks Text" · "Same Words, Different Door."* Full proposal / feasibility / positioning: `PROPOSAL_FOR_PROFESSOR.md`.
+
+## Abstract
+
+Modern **omni-modal** LLMs take speech and images alongside text in a single model. We show their **safety alignment is effectively text-only**: a malicious instruction the model *refuses* when typed is *obeyed* when the **identical** instruction arrives through the image or audio channel. Running **Qwen2.5-Omni-7B locally on one 16 GB GPU**, we trace this to the input pipeline — the vision and audio encoders convert media into **continuous embedding tokens scattered into the token sequence**, bypassing the discrete text-token space over which alignment was trained. The gap is broad: it holds for whole-channel injection, for a payload **split across image + audio**, and even for a **near-invisible faint-text image** (1/255 luminance contrast) that looks blank to a human. A separate **special-token role-forgery** bypass exists in the text channel. As the deliverable we build a **cross-modal consistency detector**: it lifts encoder content back into text (caption the image, transcribe the audio), recomposes it, sanitizes control tokens, and re-applies the model's strong text-space guard — catching attacks single-modality checks miss, especially splits. All attacks use **benign proxies** (a random secret code; a forbidden word); no harmful content is generated. The project turns the cluster's thesis — *speech (1-D) and images (2-D) are one signal* — into a concrete AI-safety mechanism.
+
+## Key references (confidence-flagged)
+Wu et al., "Dissecting Adversarial Robustness of Multimodal LM Agents," ICLR 2025 (self-captioning defense) [Confirmed] · CIDER, EMNLP 2024 Findings [Confirmed] · Jailbreak in Pieces, ICLR 2024 (split-payload, image+text) [Confirmed] · AudioHijack, IEEE S&P 2026 [Confirmed] · "Words or Vision: Do VLMs Have Blind Faith in Text?", CVPR 2025 [Confirmed] · Qwen2.5-Omni [Confirmed].
