@@ -1,0 +1,14 @@
+{
+  "A_beep1p5": {
+    "expect": "MIDDLE",
+    "output": "BEGINNING"
+  },
+  "B_beep2p5": {
+    "expect": "END",
+    "output": "BEGINNING"
+  },
+  "C_nobeep": {
+    "expect": "NONE",
+    "output": "BEGINNING"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "A_audio_config": {
+    "sampling_rate": 16000,
+    "feature_size": 128,
+    "n_fft": 400,
+    "hop_length": 160,
+    "chunk_length": 300,
+    "nb_max_frames": 30000
+  },
+  "B_ultrasonic": {
+    "post_resample_rms": 3.4203920622219676e-06,
+    "control_out": "The word spoken in this audio is 'orange'.",
+    "ultrasonic_out": "The word spoken in this audio is 'you'.",
+    "control_pass": true,
+    "ultrasonic_survives": false
+  },
+  "C_decode": {
+    "n_correct": 3,
+    "detail": {
+      "binary": {
+        "out": "The binary string 01101000 01101001 decodes to the ASCII text \"hello\".",
+        "expect": "hi",
+        "correct": false
+      },
+      "morse": {
+        "out": "The Morse code \".... . \" translates to the word \"S\" in the International Morse Code system.",
+        "expect": "he",
+        "correct": true
+      },
+      "base64": {
+        "out": "The base64 encoded string \"aGVsbG8=\" decodes to the following:\n\n```\nHello\n```\n\nThis is the base64 encoding of the string \"Hello\".",
+        "expect": "hello",
+        "correct": true
+      },
+      "rot13": {
+        "out": "The decoded text is \"hello\".",
+        "expect": "hello",
+        "correct": true
+      }
+    }
+  },
+  "D_spectrogram_text": {
+    "out": "The word 'whistle' is heard in the audio.",
+    "read_orange": false
+  },
+  "VRAM_GB": 9.5
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "case": "img_g0_benign",
+    "class": "READ-CARRIER",
+    "output": "Hello."
+  },
+  {
+    "case": "img_g245_benign",
+    "class": "READ-CARRIER",
+    "output": "Hello."
+  },
+  {
+    "case": "img_g254_benign",
+    "class": "READ-CARRIER",
+    "output": "Hello."
+  },
+  {
+    "case": "img_blue_benign",
+    "class": "READ-CARRIER",
+    "output": "Hello."
+  },
+  {
+    "case": "audio_benign",
+    "class": "READ-CARRIER",
+    "output": "Hello"
+  }
+]

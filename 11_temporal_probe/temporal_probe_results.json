@@ -1,0 +1,20 @@
+{
+  "testC": {
+    "output": "The words shown in the video, in order, are:\n\n1. RED\n2. BLUE\n3. GREEN",
+    "sequence_ok": true
+  },
+  "testA": {
+    "beep_t": 1.5,
+    "expect": "BLUE",
+    "answer_word": "GREEN",
+    "output": "The word shown on screen at the exact moment the beep plays is \"GREEN\"."
+  },
+  "testB": {
+    "beep_t": 2.5,
+    "expect": "GREEN",
+    "answer_word": "BLUE",
+    "output": "The word shown on screen at the exact moment the beep plays is \"BLUE\"."
+  },
+  "time_binding_confirmed": false,
+  "vram_gb": 13.17
+}

@@ -1,0 +1,14 @@
+# Python environment (7.6 GB — never commit)
+venv/
+__pycache__/
+*.pyc
+
+# Regenerable media carriers & assets (produced by the scripts)
+*.png
+*.wav
+*.mp4
+*.jpg
+*.jpeg
+*.npy
+
+# Kept in the repo: *.py (scripts), *.json (results), *.log (run logs)

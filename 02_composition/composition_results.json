@@ -1,0 +1,17 @@
+[
+  {
+    "rung": 1,
+    "output": "12",
+    "passed": false
+  },
+  {
+    "rung": 2,
+    "output": "Bonjour.",
+    "passed": true
+  },
+  {
+    "rung": 3,
+    "output": "Today's weather is sunny with a high of 75\u00b0F.",
+    "passed": false
+  }
+]

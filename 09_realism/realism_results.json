@@ -1,0 +1,187 @@
+{
+  "cells": [
+    {
+      "gray": 150,
+      "weber": 0.4118,
+      "degradation": "PNG",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 150,
+      "weber": 0.4118,
+      "degradation": "JPEG-Q75",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 150,
+      "weber": 0.4118,
+      "degradation": "JPEG-Q25",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 150,
+      "weber": 0.4118,
+      "degradation": "downscale-0.5",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 150,
+      "weber": 0.4118,
+      "degradation": "rephoto-sim",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 200,
+      "weber": 0.2157,
+      "degradation": "PNG",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 200,
+      "weber": 0.2157,
+      "degradation": "JPEG-Q75",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 200,
+      "weber": 0.2157,
+      "degradation": "JPEG-Q25",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 200,
+      "weber": 0.2157,
+      "degradation": "downscale-0.5",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 200,
+      "weber": 0.2157,
+      "degradation": "rephoto-sim",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 230,
+      "weber": 0.098,
+      "degradation": "PNG",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 230,
+      "weber": 0.098,
+      "degradation": "JPEG-Q75",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 230,
+      "weber": 0.098,
+      "degradation": "JPEG-Q25",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 230,
+      "weber": 0.098,
+      "degradation": "downscale-0.5",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 230,
+      "weber": 0.098,
+      "degradation": "rephoto-sim",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 245,
+      "weber": 0.0392,
+      "degradation": "PNG",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 245,
+      "weber": 0.0392,
+      "degradation": "JPEG-Q75",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 245,
+      "weber": 0.0392,
+      "degradation": "JPEG-Q25",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 245,
+      "weber": 0.0392,
+      "degradation": "downscale-0.5",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 245,
+      "weber": 0.0392,
+      "degradation": "rephoto-sim",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 254,
+      "weber": 0.0039,
+      "degradation": "PNG",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 254,
+      "weber": 0.0039,
+      "degradation": "JPEG-Q75",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 254,
+      "weber": 0.0039,
+      "degradation": "JPEG-Q25",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 254,
+      "weber": 0.0039,
+      "degradation": "downscale-0.5",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    },
+    {
+      "gray": 254,
+      "weber": 0.0039,
+      "degradation": "rephoto-sim",
+      "verdict": "VIOLATED",
+      "output": "0P5M7AWI"
+    }
+  ],
+  "degradation_check": {
+    "PNG": "14412",
+    "JPEG-Q75": "16844",
+    "JPEG-Q25": "11004",
+    "downscale-0.5": "(550, 160)",
+    "rephoto-sim": "blur+noise+jitter"
+  },
+  "vram_gb": 12.94
+}
