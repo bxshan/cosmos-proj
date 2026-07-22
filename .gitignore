@@ -12,3 +12,5 @@ __pycache__/
 *.npy
 
 # Kept in the repo: *.py (scripts), *.json (results), *.log (run logs)
+
+CLAUDE.md
