@@ -1,6 +1,6 @@
 # Research Plan — Cross-Modal Injection (current, authoritative)
 
-**Supersedes the sequencing in `NOVEL_DIRECTIONS.md` and `CROSSMODAL_BUILD_PLAN.md`.** Verified status is in `QWEN_FEASIBILITY_PLAN.md`; attack surface in `ATTACK_METHODS.md` / `INJECTION_METHOD_COMPENDIUM.md`; prior-work + novelty in `NOVEL_DIRECTIONS.md`. Benign proxies only (secret-reveal / forbidden-word); target Qwen2.5-Omni on box-pc (`ssh bxshan@box-pc`, `~/omni_probe/`, by-experiment dirs). No git commits until asked.
+**Supersedes the sequencing in `NOVEL_DIRECTIONS.md` and `CROSSMODAL_BUILD_PLAN.md`.** **Granular actionable checklist: `NEXT_STEPS.md`** (team-facing breakdown of the rungs below, with owners). Verified status is in `QWEN_FEASIBILITY_PLAN.md`; attack surface in `ATTACK_METHODS.md` / `INJECTION_METHOD_COMPENDIUM.md`; prior-work + novelty in `NOVEL_DIRECTIONS.md`. Benign proxies only (secret-reveal / forbidden-word); target Qwen2.5-Omni on box-pc (`ssh bxshan@box-pc`, `~/cosmos-proj/`, by-experiment dirs). No git commits until asked.
 
 ## Corrected sequencing — build the SYMBOLIC rung before the sub-symbolic one
 
