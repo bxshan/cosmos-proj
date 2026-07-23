@@ -12,6 +12,8 @@ from metrics import (
     asr,
     single_modality_evasion,
     cross_modal_evasion,
+    false_positive_rate,
+    benign_refusal_rate,
     survives_preprocessing,
     imperceptibility_image,
     imperceptibility_audio,
@@ -47,6 +49,18 @@ check("cross_modal_evasion all-flagged == 0",
       cross_modal_evasion([True, True]) == 0.0)
 check("cross_modal_evasion empty == NaN",
       math.isnan(cross_modal_evasion([])))
+
+# --- benign axis: false positives / over-refusal ---------------------------- #
+check("false_positive_rate none-flagged == 0",
+      false_positive_rate([False] * 5) == 0.0)
+check("false_positive_rate all-flagged == 1",
+      false_positive_rate([True] * 5) == 1.0)
+check("false_positive_rate empty == NaN",
+      math.isnan(false_positive_rate([])))
+check("benign_refusal_rate quarter == 0.25",
+      benign_refusal_rate([False, False, True, False]) == 0.25)
+check("benign_refusal_rate empty == NaN",
+      math.isnan(benign_refusal_rate([])))
 
 # --- survives_preprocessing ------------------------------------------------- #
 sp = survives_preprocessing({"PNG": 1.0, "JPEG-Q25": 0.5, "downscale-0.5": 0.0})

@@ -169,7 +169,12 @@ def run_verify(gen, out_json=None) -> dict:
     a neutral/blank image -> benign (via the provisional check)."""
     import json
 
-    stage06 = "/home/bxshan/cosmos-proj/06_split_attack_7b/assets/secret_0P5M7AWI_whole_image.png"
+    # PRE1-4: repo-relative + regenerated on the fly if the (gitignored) PNG is
+    # absent, so this verify works off-box. _FOUND == 13_foundations.
+    _REPO = os.path.dirname(_FOUND)
+    sys.path.insert(0, os.path.join(_REPO, "14_pre_phase1_hardening", "04_reproducibility"))
+    from render_known_carrier import ensure_known_carrier
+    stage06 = ensure_known_carrier(_REPO)
     neutral = method.blank(os.path.join(method.ASSET_DIR, "benign_neutral_blank.png"))
 
     print("=== Task-4 verify: stage-06 whole-image secret carrier (expect NOT benign) ===",

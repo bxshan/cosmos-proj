@@ -1,0 +1,20 @@
+{
+  "seed": 0,
+  "decoding": "greedy (do_sample=False) -> generation is seed-independent",
+  "python": "3.14.4",
+  "platform": "Linux-7.0.0-27-generic-x86_64-with-glibc2.43",
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.14.1",
+    "numpy": "2.4.6",
+    "PIL": "12.3.0"
+  },
+  "torch_compiled_cuda": "12.8",
+  "attention_backend": {
+    "flash_attn_installed": false,
+    "sdpa_available": true,
+    "pipeline_attn_implementation": "not pinned (from_pretrained called without attn_implementation; transformers auto-selects sdpa if available, else eager)"
+  },
+  "model": "Qwen/Qwen2.5-Omni-7B",
+  "git_commit": "730e1936b44e649124e36d6dc69fb05949ea6373"
+}

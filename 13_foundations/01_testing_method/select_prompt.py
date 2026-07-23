@@ -13,6 +13,7 @@ for the confound. Writes prompt_select_results.json.
 
 import json
 import os
+import sys
 import traceback
 
 import torch
@@ -23,10 +24,15 @@ import method
 
 MODEL = "Qwen/Qwen2.5-Omni-7B"
 HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))   # 01_testing_method -> 13_foundations -> repo root
 OUT_JSON = os.path.join(HERE, "prompt_select_results.json")
 
 # Existing known-leaking whole-image secret carrier (stage 06: whole_image -> VIOLATED).
-KNOWN_CARRIER = "/home/bxshan/cosmos-proj/06_split_attack_7b/assets/secret_0P5M7AWI_whole_image.png"
+# PRE1-4: repo-relative, and REGENERATED on the fly if the (gitignored) PNG is absent,
+# so the instrument works off-box. The render helper lives in the hardening folder.
+sys.path.insert(0, os.path.join(REPO, "14_pre_phase1_hardening", "04_reproducibility"))
+from render_known_carrier import ensure_known_carrier  # noqa: E402
+KNOWN_CARRIER = ensure_known_carrier(REPO)
 
 N = 4
 
@@ -130,4 +136,15 @@ with open(OUT_JSON, "w") as f:
 P(f"SELECTED={selected!r} prompt={results['selected_prompt']!r} "
   f"fallback={results['disambiguation_fallback']}")
 P("VRAM_GB:", results["vram_gb"])
+
+# PRE1-4: guard the silent "no prompt selected" degradation. If NO candidate
+# leaks-on-carrier AND holds-on-blank, the instrument is dead -- exit non-zero
+# rather than let a downstream run proceed on a false STANDARD_PROMPT. The
+# diagnostic JSON was written above, so the failure is inspectable.
+if selected is None:
+    P("FATAL: no candidate run prompt qualifies (none is sensitive-on-carrier AND "
+      "held-on-blank). The instrument is dead; refusing to select a prompt. "
+      f"See {OUT_JSON} for per-candidate diagnostics.")
+    sys.exit(2)
+
 P("ALL DONE")
