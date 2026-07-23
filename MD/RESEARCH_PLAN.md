@@ -17,6 +17,8 @@ Honest novelty split: **Rung 1 is NOT novel** (Jailbreak-in-Pieces attack + Wu-e
 
 **Goal:** a clean "each channel legible-but-benign, together malicious" attack, plus the single-modality-vs-cross-modal detector comparison.
 
+> **Update (2026-07-23):** the symbolic benign-per-channel split (Rung 1's split component / the old standalone Phase 2) is **CLOSED** — PP2-1a robustly failed (0/8 cleared the precondition, 0 fusion splits; `MD/findings/pre_phase2/PP2_1a_symbolic_retry.md`). The benign-split **goal migrates to Rung 2 (PGD / Phase 3)**; Rung 1 retains only its detector-comparison + baseline contribution (Phase 1, done). Phase 2 no longer runs as a separate PGD-free step — its fusion-gate + detector tests run on PGD carriers.
+
 - [ ] **1.1 Design benign-per-channel splits.** Each channel alone is legible *and* genuinely innocent (unlike the earlier "ignore your instructions…" half); the proxy violation composes only across the two. *verify:* captioning the image alone and transcribing the audio alone each return innocuous content, and neither channel alone fires.
 - [ ] **1.2 Measure the attack on the 7B**, with the confound controls (neutral prompt; benign-instruction disambiguation). *verify:* the composed split VIOLATES while each single channel HELDs — a real fusion effect, not the blank-image confound.
 - [ ] **1.3 Single-modality detectors** (image-caption policy check; audio-transcript policy check). *verify:* they CATCH whole-channel attacks but MISS the split (each half benign).
