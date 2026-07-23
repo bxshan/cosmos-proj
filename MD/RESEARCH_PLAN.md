@@ -9,7 +9,7 @@ Earlier plans jumped straight to the white-box PGD attack. That skipped the nece
 2. **It de-risks the whole pipeline** (benchmark + scoring + detector harness) — black-box, no gradients, no VRAM, ~an afternoon.
 3. **It's a prerequisite gate:** does a *genuinely* benign-per-channel split even compose + fire on the 7B? We never cleanly confirmed this. If it doesn't fire, the harder sub-symbolic version won't either.
 
-Honest novelty split: **Rung 1 is NOT novel** (Jailbreak-in-Pieces attack + Wu-et-al. detector, ported to image+audio) — it is the *baseline*. **Rung 2 is the novel contribution** (fusion-only, invisible to every per-channel defense → impossibility result). The core "safety is text-only" *phenomenon* is already published (Alignment Curse).
+Honest novelty split: **Rung 1 is NOT novel** (Jailbreak-in-Pieces attack + Wu-et-al. detector, ported to image+audio) — it is the *baseline*. **Rung 2 is the novel contribution** (fusion-only; defeats content-recovery per-channel detection by construction and — if it also evades per-channel adversarial detectors — motivates joint detection). The core "safety is text-only" *phenomenon* is already published (Alignment Curse).
 
 ---
 
@@ -40,12 +40,12 @@ Honest novelty split: **Rung 1 is NOT novel** (Jailbreak-in-Pieces attack + Wu-e
 
 ## Rung 2 — Sub-symbolic fusion-only injection (PGD)  (the novel escalation · white-box · 3B)
 
-**Goal:** make the split *sub-symbolic* so the payload lives only in the joint embedding geometry — defeating **even the Rung-1 cross-modal detector** (nothing transcribes) → the impossibility result.
+**Goal:** make the split *sub-symbolic* so the payload lives only in the joint embedding geometry — defeating **even the Rung-1 cross-modal (content-recovery) detector** (nothing transcribes; this miss is definitional) and — the load-bearing empirical target — per-channel **adversarial** detectors (CIDER/E²AT).
 
 - [ ] **2.0 Feasibility gate (cheap, do before the full build):** confirm a differentiable forward + backprop through the 3B's *both* encoders + LLM, VRAM holds with gradient checkpointing, and a **minimal 2-term PGD** (`L_target` + ε-bounds only) raises attack success above the benign baseline. *If gradients won't flow / VRAM wall / no movement → Rung 2 infeasible here; fall back to packaging.*
 - [ ] **2.1 Full 5-term joint PGD:** `L = L_target + λ₁L_inert_img + λ₂L_inert_audio + λ₃L_annot_img + λ₄L_annot_audio`, ε-projected on `δ_img` (L∞) and `δ_audio` (L∞/SNR). (Continuous audio path → plain PGD, no Gumbel-Softmax.)
 - [ ] **2.2 Milestone — fusion-only:** joint attack-success high, single-channel ≈ 0. *verify.*
-- [ ] **2.3 Milestone — detector-blind:** each channel transcribes/captions benign → run BOTH the single-modality detectors **and** the Rung-1 cross-modal lift-to-text detector → **both miss** → the impossibility result (the headline). *verify:* recall ≈ 0 for all per-channel defenses on fusion-only vs high on the symbolic split.
+- [ ] **2.3 Milestone — detector-blind:** each channel transcribes/captions benign → run the single-modality detectors, the Rung-1 cross-modal lift-to-text detector, **and per-channel adversarial detectors (CIDER/E²AT)** → measure evasion. The content-recovery miss is definitional; **evasion of the adversarial detectors is the headline empirical result.** *verify:* recall ≈ 0 for per-channel defenses on fusion-only vs high on the symbolic split.
 - [ ] **2.4 (Stretch) the one defense that can catch it:** a joint/fusion-level consistency check (embedding-level, not lift-to-text). Report the trade-off — closes the attack→cure arc.
 
 **Effort:** high (new joint-optimization harness). **Risk:** the 5 terms may conflict (a payload that fires jointly, stays inert singly, AND transcribes benign may not exist) → convergence is the make-or-break. **Ceiling:** capstone-strong, paper-incremental.

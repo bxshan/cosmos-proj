@@ -9,7 +9,7 @@ At-a-glance. Full detail: `NEXT_STEPS.md`. **A = Boxuan (attacks), B = teammate 
 **2. Benign split (coupled)** — order is fixed:
 `B single-channel detectors → defines "benign" → A designs the split → B cross-modal detector (catches split, sanitize control tokens)`. Scenario = secret-reveal (forbidden-word can't be benign-per-channel).
 
-**3. PGD / fusion-only (A, novel)** — feasibility gate first (gradients + VRAM on 3B) → full joint-loss attack → **invisible to *every* per-channel defense incl. the cross-modal one = the impossibility headline.** B confirms all detectors miss it.
+**3. PGD / fusion-only (A, novel)** — feasibility gate first (gradients + VRAM on 3B, raw-space round-trip) → full joint-loss attack → **defeats content-recovery detection by construction; evasion of per-channel adversarial detectors (CIDER/E²AT) is the unproven headline** → motivates joint detection. Sequence the harness *after* the crux fires.
 
 **4. Deliverable (B, parallel — safety net)** — poster + writeup + send professor email; stretch: replicate on a 2nd model.
 

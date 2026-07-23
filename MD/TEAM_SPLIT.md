@@ -11,7 +11,7 @@ Cut along the project's own spine (attack → defense). Each person owns an end-
 ## Person B — teammate — detectors + infra + deliverable
 Priority order (first two unblock A's headline):
 1. **Shared benchmark + scorer** — the common measurement both report through (ASR, imperceptibility, single- vs cross-modal detector-evasion). Build first; everything depends on it.
-2. **#3 Detectors** — single-modality (image-caption + audio-transcript policy checks) + cross-modal lift-to-text (**sanitize control tokens**). Code now against existing `06_split_attack_7b` attacks; run against A's split (should CATCH) and A's fusion-only (should MISS → impossibility headline).
+2. **#3 Detectors** — single-modality (image-caption + audio-transcript policy checks) + cross-modal lift-to-text (**sanitize control tokens**). Code now against existing `06_split_attack_7b` attacks; run against A's split (should CATCH) and A's fusion-only (content-recovery MISS is definitional; the headline is evasion of per-channel *adversarial* detectors).
 3. **#8 Poster + systematic-study writeup** — safety-net deliverable, complete even if PGD stalls.
 4. **#2 professor email** (`MD/EMAIL.md`) + **#4 Rung-1 report** + stretch **cross-model replication** (MiniCPM-o / Phi-4).
 
